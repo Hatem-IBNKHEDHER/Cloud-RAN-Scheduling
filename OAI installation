@@ -1,0 +1,16 @@
+Step1: Fetch and install openairinterface5g (radio access network) and openair-cn (core network)
+
+sudo apt-get update
+sudo apt-get install subversion git
+git clone https://gitlab.eurecom.fr/oai/openairinterface5g.git
+git clone  https://gitlab.eurecom.fr/oai/openair-cn.git
+cd openairinterface5g
+source oaienv
+cd cmake_targets
+./build_oai -I --install-optional-packages -w USRP    (with -I option you can Install all required packages for USRP)
+./build_oai -I --install-optional-packages -w EXMIMO    (with -I option you can Install all required packages for EXMIMO)
+
+cd openair-cn
+Git checkout v0.3.2
+cd SCRIPTS
+./build_epc -i
